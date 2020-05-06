@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: swift:5.2.3-bionic
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Compile project
+      run: |
+        swift run swift-multiplatform
