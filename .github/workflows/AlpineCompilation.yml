@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: alpine-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install dependencies
+      run: |
+        apk add build-base git swift-bin
+
+    - name: Compile project
+      run: |
+        swift run swift-multiplatform
