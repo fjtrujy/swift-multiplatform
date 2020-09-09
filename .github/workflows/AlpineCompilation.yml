@@ -8,13 +8,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: alpine:latest
+    container: sickcodes/docker-osx:latest
     steps:
     - uses: actions/checkout@v2
     
     - name: Install dependencies
       run: |
-        apk add build-base git swift-bin
+        system_profiler SPSoftwareDataType
 
     - name: Compile project
       run: |
